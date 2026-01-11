@@ -1,5 +1,4 @@
 #import "@local/my-math:0.1.0": *
-#show sym.arrow.l.r.double: sym.arrow.l.r.double.long
 
 #show: project.with(
   title: "Rezolvari gazeta matematica 6-7-8",
@@ -104,7 +103,7 @@
   Acest lucru implică $A, O, M$ coliniare $=>$ înălțimea din $A$ este și mediană $=> triangle A B C$ isoscel cu un unghi de $60degree => A B C$ echilateral.
   Dar ipoteza spune că triunghiul este *neechilateral*.
   
-  $ => A != 60degree => #rect[angle A > 60degree] $
+  $ => A != 60degree => #rect[$angle.spheric A > 60degree$] $
 ]
 
 // ============================================================================
