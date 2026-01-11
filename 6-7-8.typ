@@ -439,5 +439,179 @@
 ]
 
 #proof[
+  Fie ecuația $x^2 - y^2 = N$, unde $N = a^m$.
+  Descompunem diferența de pătrate în factori:
+  $ (x - y)(x + y) = N $
   
+  Notăm cei doi factori cu $u$ și $v$:
+  $ cases(x - y = u, x + y = v) $
+  unde $u dot v = N$ și $u < v$ (pentru $y > 0$).
+  
+  Rezolvând sistemul pentru $x$ și $y$ prin adunarea și scăderea celor două ecuații, obținem:
+  $ 2x = u + v -> x = (u + v) / 2 $
+  $ 2y = v - u -> y = (v - u) / 2 $
+  
+  Pentru ca $x, y in NN$, este necesar și suficient ca $u + v$ și $v - u$ să fie numere pare.
+  Observăm că diferența lor este pară:
+  $ (v + u) - (v - u) = 2u $
+  Deoarece suma a două numere are aceeași paritate cu diferența lor, condiția se reduce la faptul că $u$ și $v$ trebuie să aibă *aceeași paritate*.
+  
+  Analizăm paritatea produsului $N = u dot v$:
+  + *Cazul 1:* Dacă $u, v$ sunt ambele impare, atunci $N$ este impar ($N equiv 1$ sau $3 space(mod 4)$). Suma și diferența lor vor fi pare. Ecuația are întotdeauna soluții.
+  + *Cazul 2:* Dacă $u, v$ sunt ambele pare, fie $u = 2k$ și $v = 2p$. Atunci $N = 2k dot 2p = 4k p$, deci $N$ este divizibil cu 4 ($N equiv 0 space(mod 4)$). Și în acest caz sistemul are soluții.
+  + *Cazul 3:* Dacă $u$ și $v$ au parități diferite, acest lucru contrazice condiția $x, y in NN$. Acest caz corespunde situației în care $N$ este par, dar nu este divizibil cu 4 (un factor par și unul impar).
+  
+  $ exists x, y in NN <=> N equiv 2 space(mod 4) $
+  
+  Problema cere să determinăm $a$ astfel încât să *existe* un $m$ pentru care ecuația nu are soluții. Așadar, căutăm $a$ astfel încât:
+  $ exists m in NN, a^m equiv 2 space(mod 4) $
+  
+  Analizăm resturile posibile ale lui $a$ la împărțirea cu 4:
+  - Dacă $a$ este impar ($a equiv 1, 3 space(mod 4)$), atunci $a^m$ este impar pentru orice $m >= 1$. Ecuația are mereu soluții.
+  - Dacă $a$ este multiplu de 4 ($a equiv 0 space(mod 4)$), atunci $a^m$ este multiplu de 4 pentru orice $m >= 1$. Ecuația are mereu soluții.
+  - Dacă $a$ este par, dar nu multiplu de 4 ($a equiv 2 space(mod 4)$):
+    - Pentru $m = 1$, avem $a^1 = a equiv 2 space(mod 4)$.
+    Conform analizei de mai sus, pentru $N = a$, ecuația nu admite soluții. Condiția de existență a lui $m$ este satisfăcută.
+  
+  *Observație:* Pentru $m >= 2$, $a^m = a^2 dot a^(m-2) = (4k+2)^2 dot (...) = M_4 dot (...) equiv 0 space(mod 4)$, deci ecuația ar avea soluții. Totuși, cerința este doar să existe *un* $m$, iar $m=1$ verifică.
+
+  *Concluzie:*
+  Numerele căutate sunt cele de forma $a = 4k + 2, k in NN$ (numerele pare, nedivizibile cu 4).
+]
+
+// ============================================================================
+// PROBLEMA 29152
+// ============================================================================
+#problem(29152, author: "Sebastian Buliga, Tudor Taropa")[
+  Fie triunghiul ascuțitunghic $A B C$ și $M, N, P$ mijloacele laturilor $A B, B C, "respectiv" A C$. Fie $I "și" O$ centrele cercurilor înscris, respectiv circumscris al triunghiului $A B C$, iar $J "și" Q$ centrele cercurilor înscris, respectiv circumscris al triunghiului $M N P$. Notăm cu ${K} = Q I inter O J$.\
+  Arătați că triunghiurile $A B C "și" K I O$ au același centru de greutate.
+]
+
+#proof[
+  INCA NU!
+]
+
+// ============================================================================
+// PROBLEMA 29153
+// ============================================================================
+#problem(29153, author: "Cristian Heuberger")[
+  Fie $u, v > 0$ și paralelogramul $A B C D$. Spunem că punctele $M in (A D)$ și $N in (B C)$ sunt conectate, dacă $u dot (B N)/(B C) - (M D)/(A D) = v$.
+
+  a) Arătați că există puncte conectate dacă și numai dacă $u > v$. \
+  b) Dacă $u > v$ și punctele $M$ și $N$ sunt conectate, arătați că segmentul $(M N)$ trece printr-un punct fix.
+]
+
+#proof[
+  INCA NU!
+]
+
+// ============================================================================
+// PROBLEMA 29154
+// ============================================================================
+#problem(29154, author: "David Anghel")[
+  Avem $n$ copii și $n$ bomboane distincte, unde $n >= 3$. Fiecare copil își ordonează bomboanele după preferințe. În prima zi, copiii se așează în linie și primesc, pe rând, bomboana care le place cel mai mult, din cele rămase. A doua zi, ordinea lor se inversează, dar procesul rămâne același. Se constată că fiecare copil primește aceeași bomboană în ambele zile. Arătați că fiecare copil a primit bomboana preferată.
+]
+
+#proof[
+  Fie $n$ numărul de copii și $B$ mulțimea bomboanelor, cu $abs(B) = n$.
+  Notăm copiii cu $c_1, c_2, ..., c_n$, unde indicele reprezintă *poziția* copilului în linie în prima zi (deci $c_1$ este primul la rând, $c_2$ al doilea, etc.).
+  
+  Fie $b_k$ bomboana primită de copilul $c_k$. Deoarece fiecare copil primește o bomboană distinctă, mulțimea $\{b_1, b_2, ..., b_n\}$ este identică cu $B$.
+  Notăm relația de preferință a copilului $c_k$ cu $succ_(c_k)$.
+
+  *Analiza primei zile:*
+  Ordinea de alegere este $c_1, c_2, ..., c_n$.
+  În momentul în care îi vine rândul copilului $c_k$, copiii din fața sa ($c_1, ..., c_(k-1)$) au ales deja bomboanele $\{b_1, ..., b_(k-1)\}$.
+  Mulțimea bomboanelor disponibile pentru $c_k$ este $A_k = \{b_k, b_(k+1), ..., b_n\}$.
+  Deoarece copilul alege $b_k$ (cea mai bună opțiune disponibilă pentru el), rezultă:
+  $ b_k succ_(c_k) b_j, quad forall j in \{k+1, ..., n\} $
+  (1) Copilul de pe poziția $k$ preferă bomboana sa față de orice bomboană a celor care urmează după el în linie.
+
+  *Analiza celei de-a doua zile:*
+  Ordinea se inversează: $c_n, c_(n-1), ..., c_1$.
+  Să analizăm momentul când îi vine rândul copilului $c_k$.
+  Înaintea lui au ales copiii $c_n, c_(n-1), ..., c_(k+1)$.
+  Conform ipotezei, fiecare copil primește *aceeași* bomboană ca în prima zi. Așadar, $c_n$ a luat $b_n$, $c_(n-1)$ a luat $b_(n-1)$, etc.
+  Deci, mulțimea bomboanelor deja alese este $\{b_n, b_(n-1), ..., b_(k+1)\}$.
+  Mulțimea bomboanelor disponibile pentru $c_k$ în a doua zi este $A'_k = \{b_1, b_2, ..., b_k\}$.
+  Deoarece $c_k$ alege tot $b_k$, înseamnă că aceasta este cea mai bună opțiune din $A'_k$:
+  $ b_k succ_(c_k) b_j, quad forall j in \{1, ..., k-1\} $
+  (2) Copilul de pe poziția $k$ preferă bomboana sa față de orice bomboană a celor care au ales după el în ziua 2 (adică cei din fața lui în ziua 1).
+
+  *Concluzie:*
+  Pentru un copil oarecare $c_k$, combinând relațiile (1) și (2):
+  - Din (1): $b_k$ este preferată tuturor bomboanelor $b_j$ cu $j > k$.
+  - Din (2): $b_k$ este preferată tuturor bomboanelor $b_j$ cu $j < k$.
+
+  Rezultă că $b_k succ_(c_k) b_j$ pentru orice $j != k$.
+  Așadar, $b_k$ este bomboana preferată a copilului $c_k$ dintre toate bomboanele existente.
+]
+
+// ============================================================================
+// PROBLEMA 29155
+// ============================================================================
+#problem(29155, author: "George Stoica")[
+  Un număr de bile distincte sunt distribuite în $n >= 2$ cutii, astfel încât în fiecare cutie să fie cel puțin o bilă. Apoi, se adaugă o nouă cutie și se redistribuie bilele astfel încât în fiecare dintre cele $n + 1$ cutii să fie cel puțin o bilă. Arătați că există două bile, fiecare cu proprietatea că noua cutie în care se află are mai puține bile decât cutia în care se afla inițial.
+]
+
+#proof[
+  Vom utiliza o metodă bazată pe o funcție potențial ("sum of inverse sizes").
+  Fie $cal(B)$ mulțimea bilelor. Pentru fiecare bilă $b in cal(B)$, notăm cu $abs(C(b))$ numărul de bile din cutia în care se află bila $b$.
+
+  Definim suma $S$ astfel:
+  $ S = sum_(b in cal(B)) 1 / abs(C(b)) $
+
+  Să calculăm această sumă grupând termenii pe cutii. Dacă avem cutiile $C_1, ..., C_k$ cu numărul de bile $x_1, ..., x_k$ (unde $x_j >= 1$), atunci contribuția cutiei $j$ la sumă este:
+  $ sum_(b in C_j) 1 / abs(C(b)) = sum_(b in C_j) 1 / x_j = x_j dot 1 / x_j = 1 $
+  Astfel, $S$ este egală cu numărul total de cutii.
+
+  *Configurația inițială (A):*
+  Avem $n$ cutii.
+  $ S_A = sum_(b in cal(B)) 1 / abs(C_A (b)) = n $
+
+  *Configurația finală (B):*
+  Avem $n + 1$ cutii.
+  $ S_B = sum_(b in cal(B)) 1 / abs(C_B (b)) = n + 1 $
+
+  Diferența dintre sume este:
+  $ S_B - S_A = (n+1) - n = 1 $
+  Scriind diferența ca sumă pe bile:
+  $ sum_(b in cal(B)) lr(( 1 / abs(C_B (b)) - 1 / abs(C_A (b)) )) = 1 $
+
+  O bilă $b$ satisface proprietatea din enunț dacă $abs(C_B (b)) < abs(C_A (b))$.
+  Observăm că:
+  - Dacă $abs(C_B (b)) < abs(C_A (b))$, atunci $1 / abs(C_B (b)) - 1 / abs(C_A (b)) > 0$.
+  - Dacă $abs(C_B (b)) >= abs(C_A (b))$, atunci $1 / abs(C_B (b)) - 1 / abs(C_A (b)) <= 0$.
+
+  Trebuie să arătăm că există cel puțin două bile cu contribuție strict pozitivă la sumă.
+  Presupunem prin reducere la absurd că există cel mult o bilă $b^*$ care satisface proprietatea.
+
+  *Cazul 1: Nicio bilă nu satisface proprietatea.*
+  Toți termenii sumei sunt $<= 0$, deci suma totală $<= 0$, ceea ce contrazice faptul că suma este $1$.
+
+  *Cazul 2: Exact o bilă $b^*$ satisface proprietatea.*
+  Fie $y = abs(C_B (b^*))$ și $x = abs(C_A (b^*))$, cu $y < x$.
+  Avem:
+  $ lr(( 1/y - 1/x )) + sum_(b != b^*) underbrace(lr(( 1/abs(C_B (b)) - 1/abs(C_A (b)) )), <= space 0) = 1 $
+  
+  Pentru ca egalitatea să aibă loc, termenul pozitiv trebuie să compenseze termenii negativi și să dea totalul 1. Deci, este necesar ca:
+  $ 1/y - 1/x >= 1 $
+  Deoarece $x >= 2$ (dacă $x=1$, nu am putea avea $y < x$ cu $y >= 1$), avem $1/x > 0$.
+  $ 1/y >= 1 + 1/x > 1 => y < 1 $
+  Dar $y$ reprezintă numărul de bile dintr-o cutie, deci $y$ trebuie să fie un întreg $>= 1$. Am ajuns la o contradicție ($y < 1$).
+
+  *Concluzie:*
+  Presupunerea că există cel mult o bilă este falsă. Prin urmare, există cel puțin două bile pentru care $abs(C_B (b)) < abs(C_A (b))$.
+]
+
+// ============================================================================
+// PROBLEMA 29156
+// ============================================================================
+#problem(29156, author: "Petru Braica")[
+  Fie triunghiul oarecare $A B C$ și $H, G$ și $F$ punctele de contact ale cercului înscris în triunghi cu laturile $B C, C A$ respectiv $A B$. Fie $S, Q$ și $R$ picioarele bisectoarelor exterioare duse din vârfurile $A, B$ respectiv $C$.\
+  Notăm cu $H_1$ simetricul lui $H$ față de dreapta $S I$. Analog definim punctele $G_1 "și" F_1$. Arătați că $H H_1, G G_1 "și" F F_1$ sunt concurente.
+]
+
+#proof[
+  INCA NU!
 ]
