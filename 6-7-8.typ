@@ -130,53 +130,9 @@
   Pentru a demonstra inegalitatea din enunț, este suficient să arătăm că:
   $ 1/3 (a/b + b/c + c/a)^2 >= 1/3 (a b^2 + b c^2 + c a^2)^2 $
   $ a/b + b/c + c/a >= a b^2 + b c^2 + c a^2 $
-
-  Amplificăm fracțiile pentru a aduce la numitor comun parțial sau observăm identitatea:
-  $ (a^2 c + b^2 a + c^2 b) / (a b c) >= a b^2 + b c^2 + c a^2 $
-  Dar o cale mai simplă este omogenizarea. Știm că $(a+b+c)^2 / (a b + b c + c a) >= 3$ (nu ajută direct).
-  
-  Să rescriem inegalitatea intermediară:
-  $ a/b + b/c + c/a = (a^2 c + b^2 a + c^2 b) / (a b c) $
-  Totuși, metoda "mixing variables" sau verificarea cazurilor particulare este mai eficientă aici.
-  Inegalitatea este omogenă. Maximul expresiei $E(a,b,c) = (a b^2 + b c^2 + c a^2)$ cu constrângeri tinde să fie atins când variabilele sunt egale sau una tinde la 0.
-  
-  Vom folosi metoda sugerată: *fixăm două variabile egale*.
-  Fie $b = a$ și $c = 3 - 2a$, cu $a in (0, 3/2)$.
-
-  Verificăm inegalitatea transformată:
-  $ 9 / (a b + b c + c a) >= a b^2 + b c^2 + c a^2 $
-  $ (a b + b c + c a)(a b^2 + b c^2 + c a^2) <= 9 $
-
-  Înlocuim $b=a, c=3-2a$:
-  1. *Primul factor:*
-     $ a^2 + a(3-2a) + a(3-2a) = a^2 + 6a - 4a^2 = 6a - 3a^2 = 3a(2-a) $
-  2. *Al doilea factor:*
-     $ a^3 + a(3-2a)^2 + (3-2a)a^2 = a^3 + a(9 - 12a + 4a^2) + 3a^2 - 2a^3 $
-     $ = a^3 + 9a - 12a^2 + 4a^3 + 3a^2 - 2a^3 = 3a^3 - 9a^2 + 9a = 3a(a^2 - 3a + 3) $
-
-  Produsul devine:
-  $ P(a) = [3a(2-a)] dot [3a(a^2 - 3a + 3)] = 9a^2 (2-a)(a^2 - 3a + 3) $
-  Vrem să arătăm că $P(a) <= 9$, adică:
-  $ a^2 (2-a)(a^2 - 3a + 3) <= 1 $
-  
-  Fie $f(a) = -a^5 + 5a^4 - 9a^3 + 6a^2$.
-  Calculăm derivata:
-  $ f'(a) = -5a^4 + 20a^3 - 27a^2 + 12a $
-  $ f'(a) = -a(5a^3 - 20a^2 + 27a - 12) $
-  Observăm că $a=1$ este rădăcină ($5-20+27-12=0$).
-  $ f'(a) = -a(a-1)(5a^2 - 15a + 12) $
-
-  Analizăm factorul pătratic $5a^2 - 15a + 12$:
-  $ Delta = 225 - 4 dot 5 dot 12 = 225 - 240 = -15 < 0 $
-  Deci paranteza este mereu pozitivă.
-
-  Semnul derivatei depinde doar de $-a(a-1)$:
-  - Pentru $a in (0, 1) => f'(a) > 0$ (funcția crește).
-  - Pentru $a > 1 => f'(a) < 0$ (funcția scade).
-  
-  Maximul global se atinge în $a = 1$.
-  $ f(1) = 1^2 dot (2-1) dot (1 - 3 + 3) = 1 $
-  Deci $P(a) <= 9$ este adevărată, cu egalitate pentru $a=b=c=1$.
+  $ cancel(a^2c + b^2a + c^2b) / (a b c) >= cancel(a b^2 + b c^2 + c a^2) $
+  $ a b c <= 1 $
+  Din medii avem ca $(a+b+c)/3 >= root(3, a b c) => root(3, a b c) <= 1 => a b c <= 1$
 ]
 
 // ============================================================================
