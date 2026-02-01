@@ -530,7 +530,7 @@
   $ (P_0 u)/(S_0 + u) > (P_0 v)/(S_0 + v) => E(A) > E(A') $
   
   Astfel, prin înlocuirea repetată a elementelor mai mari cu elementele mai mici disponibile, valoarea expresiei scade.
-  Minimul se atinge atunci când mulțimea $A$ conține cele mai mici $n$ numere naturale distincte posibile, adică $A_{min} = {1, 2, ..., n}$.
+  Minimul se atinge atunci când mulțimea $A$ conține cele mai mici $n$ numere naturale distincte posibile, adică $A_min = {1, 2, ..., n}$.
   Prin urmare:
   $ (a_1 ... a_n)/(a_1 + ... + a_n) >= (1 dot ... dot n)/(1 + ... + n) $
 ]
