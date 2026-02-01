@@ -201,6 +201,7 @@
 // ============================================================================
 // PROBLEMA 29219
 // ============================================================================
+// TODO: De uitat peste o solutie, poate mai buna
 #problem(29219, author: "Cristi Săvescu")[
   Determinați mulțimile finite de vectori $M$ pentru care există o funcție\ $f: M -> RR^*$ astfel încât 
   $ sum_(arrow(v) in M) f(arrow(v)) dot arrow(v) = 0. $
@@ -312,6 +313,7 @@
 // ============================================================================
 // PROBLEMA 29221
 // ============================================================================
+// TODO: De refacut cu o solutie normala la cap
 #problem(29221, author: "Nicolae Bourbăcuț")[
   Fie $A B C$ un triunghi ascuțitunghic cu $A B != A C$ care are centrul de greutate în $G$ și ortocentrul în $H$. Arătați că dreapta $G H$ intersectează segmentele $(A B)$ și $(A C)$ dacă și numai dacă există $t in (0, 1)$ cu propietatea că $tg A = t dot tg B + (1-t) dot tg C$.
 ]
