@@ -60,50 +60,25 @@
     columns: (1fr, auto),
     gutter: 1em,
     [
-      Folosim relația lui Sylvester: $arrow(O H) = arrow(O A) + arrow(O B) + arrow(O C)$.
-      
-      Fie $M$ mijlocul laturii $B C$. Știm că $arrow(O B) + arrow(O C) = 2arrow(O M)$. Înlocuind în relația precedentă:
-      $ arrow(O H) = arrow(O A) + 2arrow(O M) $
+      Notăm $angle.spheric A = alpha => m(arc(B C)) = 2alpha$\
+      $m(angle.spheric B O C) = m(arc(B C)) = 2alpha$ și $O M$ e bisectoarea $angle.spheric B O C => m(angle.spheric B O M) = m(angle.spheric M O C) = alpha$\
+      $=> B M = M C = O C sin alpha$\
+      $=> cases(B M = M C = R sin alpha, M O = R cos alpha)$
 
-      Din ipoteză știm:
-      1. $O$ este centrul cercului circumscris $=> O M perp B C$.
-      2. $O H parallel B C$.
-      
-      Din (1) și (2) rezultă $O H perp O M$, deci produsul lor scalar este nul:
-      $ arrow(O H) dot arrow(O M) = 0 $
+      *Demontrăm că* $A H = 2O M$
+
+      Fie $H prime in (A D)$ astfel încât $A H prime = 2O M$\
+      Dar $A H prime parallel O M => arrow(A H prime) = 2arrow(O M) = arrow(O B) + arrow(O C)$
     ],
-    // Asigură-te că imaginea există la calea respectivă
     image("img/desen-29144.png", width: 6cm)
   )
 
-  Înlocuim expresia vectorului $arrow(O H)$ în produsul scalar:
-  $ (arrow(O A) + 2arrow(O M)) dot arrow(O M) = 0 $
-  $ arrow(O A) dot arrow(O M) + 2 abs(arrow(O M))^2 = 0 $
-  $ arrow(O A) dot arrow(O M) = -2 abs(arrow(O M))^2 $
+  Deci $arrow(r)_(H prime) - arrow(r)_A = arrow(r)_B + arrow(r)_C - 2arrow(r)_O$, adică $arrow(r)_(H prime) = arrow(r)_A + arrow(r)_B + arrow(r)_C - 2arrow(r)_O$
 
-  Trecem la module. Știm că $x <= abs(x)$, deci:
-  $ 2 abs(arrow(O M))^2 = abs(-2 abs(arrow(O M))^2) = abs(arrow(O A) dot arrow(O M)) $
-  
-  Aplicăm inegalitatea Cauchy-Schwarz (sau definiția produsului scalar):
-  $ abs(arrow(O A) dot arrow(O M)) <= abs(arrow(O A)) dot abs(arrow(O M)) $
+  Conform teoremei lui Sylvester, $arrow(r)_H = arrow(r)_A + arrow(r)_B + arrow(r)_C - 2arrow(r)_O => arrow(r)_(H prime) = arrow(r)_H => H prime = H$\
+  Deci $#rect[$A H = 2O M$] => A H = 2R cos alpha$
 
-  Combinând relațiile:
-  $ 2 abs(arrow(O M))^cancel(2) <= abs(arrow(O A)) dot cancel(abs(arrow(O M))) $
-  $ 2 abs(arrow(O M)) <= abs(arrow(O A)) $
-  
-  În triunghiul $O M C$ dreptunghic în $M$, avem $abs(arrow(O M)) = R cos A$, iar $abs(arrow(O A)) = R$.
-  $ 2 R cos A <= R quad |:R $
-  $ cos A <= 1/2 $
-
-  Deoarece funcția cosinus este descrescătoare pe $(0, pi/2)$:
-  $ A >= 60degree $
-
-  *Tratarea egalității:*
-  Dacă $A = 60degree$, ar însemna egalitate în Cauchy-Schwarz, adică vectorii $arrow(O A)$ și $arrow(O M)$ ar fi coliniari.
-  Acest lucru implică $A, O, M$ coliniare $=>$ înălțimea din $A$ este și mediană $=> triangle A B C$ isoscel cu un unghi de $60degree => A B C$ echilateral.
-  Dar ipoteza spune că triunghiul este *neechilateral*.
-  
-  $ => A != 60degree => #rect[$angle.spheric A > 60degree$] $
+  Dar $Delta A H O$ este dreptunghic în $H => A H < A O => 2R cos alpha < R => cos alpha < 1/2 = cos 60degree => #rect[$angle.spheric A > 60degree$]$
 ]
 
 // ============================================================================
@@ -202,7 +177,24 @@
 ]
 
 #proof[
-  NU INCA! (NU-MI PLACE GEOMETRIA)
+  Notăm $A B = a, B C = b, C D = c, D E = d, E F = e, F A = f$\
+  Trebuie să demonstrăm că
+  $ (a + c + e)(1/b + 1/d + 1/f) >=9 <=> (a + c + e)/3 >= 3/(1/b + 1/d + 1/f) $
+
+  Din $m_a >= m_g => (a + c + e)/3 >= root(3, a c e)$ și din $m_h <= m_g => 3/(1/b + 1/d + 1/f) <= root(3, b d f)$\
+  Deci este deajuns să demonstrăm că $root(3, a c e) >= root(3, b d f) <=> a c e >= b d f$
+
+  Din teorema Sinusurilor:
+  $ d/(sin A_1) = c/(sin A_2) = f/(sin C_1) = e/(sin C_2) = b/(sin E_1) = a/(sin E_2) = 2R $
+  Adica
+  $ a = 2R sin E_2, b = 2R sin E_1 $
+  $ c = 2R sin A_2, d = 2R sin A_1 $
+  $ e = 2R sin C_2, f = 2R sin C_1 $
+
+  Aplicăm teorema lui Ceva trigonometrică în $Delta A C E, A D, E B "și" C F$ ceviene:
+  $ (sin A_1)/(sin A_2) dot (sin C_1)/(sin C_2) dot (sin E_1)/(sin E_2) = 1 $
+  $ (d/cancel(2R))/(c/cancel(2R)) dot (f/cancel(2R))/(e/cancel(2R)) dot (b/cancel(2R))/(a/cancel(2R)) = 1 $
+  $ b d f = a c e => a c e >= b d f => (a + c + e)(1/b + 1/d + 1/f) >=9 $
 ]
 
 // ============================================================================
@@ -225,8 +217,6 @@
   Observăm cifrele numărului obținut:
   $ a_1131 = 2292299 $
   Toate cifrele acestui număr aparțin mulțimii ${2, 9}$. Prin urmare, $a_1131$ este un termen special.
-
-  ---
 
   == 2. Demonstrarea infinității termenilor speciali
 
