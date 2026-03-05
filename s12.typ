@@ -55,7 +55,8 @@
   $ (x^2+1+x)(x+1)(x^2-x+1) = 0 $
   $ [(x^2+1)^2-1](x+1) = 0 $
   - Daca $x+1 = 0 => #rect[$x=-1$]$
-  - Daca $(x^2+1)^2-1 = 0 => x^2+1 = plus.minus 1 => x^2 = plus.minus 1 - 1 => x^2 = 0 => #rect[$x=0$]$
+  - Daca $(x^2+1)^2-1 = 0 => x^2+1 = plus.minus 1 => x^2 = plus.minus 1 - 1 => x^2 = 0 => x=0$, care nu verifică în ecuația inițială.
+  Deci $underline(x=-1)$ soluție unică.
 ]
 
 // ============================================================================
