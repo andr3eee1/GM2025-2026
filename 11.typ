@@ -56,7 +56,7 @@ Vom utiliza *calculul vectorial* raportat la punctul $O$ (intersecția diagonale
     arrow(r_G_3) &= (arrow(r_O) + arrow(r_D) + arrow(r_C)) / 3 $
 
 3. *Condiția problemei:*
-  $O$ este centrul de greutate al $triangle G_1 G_2 G_3$ dacă și numai dacă suma vectorilor de poziție este nulă (deoarece originea este în $O$):
+  $O$ este centrul de greutate al $Delta G_1 G_2 G_3$ dacă și numai dacă suma vectorilor de poziție este nulă (deoarece originea este în $O$):
   $ (arrow(r_G_1) + arrow(r_G_2) + arrow(r_G_3)) / 3 = arrow(r_O) <=> arrow(r_G_1) + arrow(r_G_2) + arrow(r_G_3) = 3arrow(r_O) $
 
   Înlocuind expresiile de la pasul 2:
@@ -269,7 +269,55 @@ Vom utiliza *calculul vectorial* raportat la punctul $O$ (intersecția diagonale
 ]
 
 #proof[
-  NU INCA! TODO
+  Vom utiliza calculul vectorial. Alegem originea reperului în centrul comun al cercurilor circumscrise, pe care îl notăm cu $O$. Astfel, vectorul de poziție al punctului $O$ este $arrow(0)$.
+  
+  Notăm vectorii de poziție ai vârfurilor cu $arrow(a), arrow(b), arrow(c)$ pentru $Delta A B C$ și cu $arrow(m), arrow(n), arrow(p)$ pentru $Delta M N P$.
+  Deoarece $O$ este centrul cercului circumscris pentru $Delta A B C$, avem $|arrow(a)| = |arrow(b)| = |arrow(c)| = R$. 
+  De asemenea, $O$ este centrul circumscris și pentru $Delta M N P$, deci $|arrow(m)| = |arrow(n)| = |arrow(p)| = r$.
+
+  Fie $H$ ortocentrul comun al celor două triunghiuri. Conform relației lui Sylvester, vectorul de poziție al ortocentrului într-un triunghi înscris într-un cerc cu centrul în originea reperului este suma vectorilor de poziție ai vârfurilor:
+  $ arrow(h) = arrow(a) + arrow(b) + arrow(c) quad "și" quad arrow(h) = arrow(m) + arrow(n) + arrow(p). $
+  Egalând cele două relații, obținem:
+  $ arrow(a) + arrow(b) + arrow(c) = arrow(m) + arrow(n) + arrow(p). quad (1) $
+
+  Deoarece punctele $M, N, P$ se află pe laturile $(B C), (C A)$, respectiv $(A B)$, ele împart aceste segmente în anumite rapoarte. Există așadar scalarii strict pozitivi $x, y, z in (0, 1)$ astfel încât:
+  $ arrow(m) &= x arrow(b) + (1-x) arrow(c) \
+    arrow(n) &= y arrow(c) + (1-y) arrow(a) \
+    arrow(p) &= z arrow(a) + (1-z) arrow(b). $
+  
+  Înlocuim aceste expresii în relația (1):
+  $ arrow(a) + arrow(b) + arrow(c) = (1-y+z)arrow(a) + (1-z+x)arrow(b) + (1-x+y)arrow(c). $
+  
+  Trecând toți termenii în membrul stâng și factorizând, obținem:
+  $ (y-z)arrow(a) + (z-x)arrow(b) + (x-y)arrow(c) = arrow(0). $
+  
+  Notăm coeficienții cu $u = y-z$, $v = z-x$ și $w = x-y$. Observăm că suma lor este nulă: $u+v+w=0$, ceea ce implică $w = -u-v$. Înlocuind pe $w$ mai sus:
+  $ u arrow(a) + v arrow(b) - (u+v) arrow(c) = arrow(0) => u(arrow(a) - arrow(c)) + v(arrow(b) - arrow(c)) = arrow(0). $
+  Aceasta se rescrie ca:
+  $ u arrow(C A) + v arrow(C B) = arrow(0). $
+  
+  Deoarece $A B C$ este un triunghi nedegenerat, vectorii $arrow(C A)$ și $arrow(C B)$ determină laturile acestuia și sunt evident necoliniari (liniar independenți). Singura soluție a ecuației vectoriale liniare este banală: $u = 0$ și $v = 0$.
+  Așadar, $y-z = 0$ și $z-x = 0$, ceea ce forțează $x = y = z$. 
+  Fie $k in (0, 1)$ această valoare comună rapoartelor.
+  
+  Revenim la vectorul $arrow(m)$ cu raportul constant identificat:
+  $ arrow(m) = k arrow(b) + (1-k) arrow(c). $
+  Înmulțim scalar vectorul cu el însuși pentru a-i afla modulul la pătrat:
+  $ |arrow(m)|^2 = k^2 |arrow(b)|^2 + (1-k)^2 |arrow(c)|^2 + 2k(1-k) (arrow(b) dot arrow(c)). $
+  Știm că $|arrow(m)|^2 = r^2$ și $|arrow(b)|^2 = |arrow(c)|^2 = R^2$. 
+  Din definiția produsului scalar și teorema unghiului la centru, avem $arrow(b) dot arrow(c) = |arrow(b)| |arrow(c)| cos(angle B O C) = R^2 cos(2A)$. Astfel:
+  $ r^2 = R^2 [k^2 + (1-k)^2 + 2k(1-k) cos(2A)]. $
+  
+  Aplicând absolut simetric același raționament pentru $arrow(n)$ și $arrow(p)$, obținem:
+  $ r^2 = R^2 [k^2 + (1-k)^2 + 2k(1-k) cos(2B)] \
+    r^2 = R^2 [k^2 + (1-k)^2 + 2k(1-k) cos(2C)]. $
+    
+  Egalând cele trei expresii și ținând cont că $2k(1-k) != 0$ (condiție strict asigurată de $k in (0, 1)$), deducem în mod necesar că:
+  $ cos(2A) = cos(2B) = cos(2C). $
+  
+  Pentru unghiurile interioare ale unui triunghi, $A, B, C in (0, 180 degree)$. Funcția cosinus pe dublul unor astfel de unghiuri poate fi egală doar dacă unghiurile inițiale sunt identice (ex: $2A = 2B => A=B$) sau dacă se adună la $360 degree$ ($2A + 2B = 360 degree => A+B = 180 degree$, ceea ce ar lăsa unghiul $C$ nul, deci un caz imposibil).
+  
+  Prin urmare, rezultă inechivoc $A = B = C$. Triunghiul $A B C$ este, în concluzie, echilateral.
 ]
 
 // ============================================================================
